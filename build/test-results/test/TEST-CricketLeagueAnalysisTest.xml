@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CricketLeagueAnalysisTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-09T13:26:32" hostname="KAJAL-LAPTOP" time="0.578">
+  <properties/>
+  <testcase name="givenIPL2019BatsmanData_shouldReturnTotalNumberOfPlayers" classname="CricketLeagueAnalysisTest" time="0.578"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
