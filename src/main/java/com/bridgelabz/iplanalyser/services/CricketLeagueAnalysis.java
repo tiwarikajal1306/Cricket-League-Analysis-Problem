@@ -52,6 +52,8 @@ public class CricketLeagueAnalysis {
                     CricketLeagueAnalysisException.ExceptionType.IPL_FILE_PROBLEM);
         }
     }
+
+    //top batting avg of the cricketers
     public String topBattingAverage() throws CricketLeagueAnalysisException {
         if (leagueList == null || leagueList.size() == 0)
             throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
@@ -60,6 +62,7 @@ public class CricketLeagueAnalysis {
         String sortedStateCensusJson = new Gson().toJson(leagueList);
         return sortedStateCensusJson;
     }
+    //top StrikeRate player
     public String topStrikeRate() throws CricketLeagueAnalysisException {
         if (leagueList == null || leagueList.size() == 0)
             throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
