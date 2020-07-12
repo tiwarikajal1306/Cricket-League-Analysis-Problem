@@ -1,6 +1,7 @@
 package com.bridgelabz.iplanalyser.dao;
 
 import com.bridgelabz.iplanalyser.model.MostRunCSV;
+import com.bridgelabz.iplanalyser.services.CricketLeagueAnalysis;
 
 public class CricketAnalysisDAO {
     public String player;
@@ -18,5 +19,10 @@ public class CricketAnalysisDAO {
         this.average = mostRunCSV.average;
         this.strikeRate = mostRunCSV.strikeRate;
     }
-
+    public Object getIplLeagueDTOS(CricketLeagueAnalysis.CricketType cricketType) {
+        if (cricketType.equals(CricketLeagueAnalysis.CricketType.BATTING))
+            return new MostRunCSV(average, strikeRate, player, six, four);
+        else
+            return null;
+    }
 }
