@@ -25,9 +25,10 @@ public class CricketLeagueAnalysisTest {
             CricketLeagueAnalysis cricketLeagueAnalysis = new CricketLeagueAnalysis(CricketLeagueAnalysis.CricketType.BATTING);
             cricketLeagueAnalysis.loadCricketLeagueData(IPL_BATSMAN_DATA);
             String sortCensusData  = cricketLeagueAnalysis.topBattingAverage();
-            MostRunCSV[] indiaCensusCSV = new Gson()
+            MostRunCSV[] mostRunCSV = new Gson()
                     .fromJson(sortCensusData, MostRunCSV[].class);
-            Assert.assertEquals("MS Dhoni", indiaCensusCSV[indiaCensusCSV.length-1].player);
+            Assert.assertEquals("MS Dhoni", mostRunCSV[mostRunCSV.length-1].player);
+            Assert.assertEquals(83.2, mostRunCSV[mostRunCSV.length-1].average,0.0);
         } catch (CricketLeagueAnalysisException e) {
             e.printStackTrace();
         }
@@ -41,6 +42,28 @@ public class CricketLeagueAnalysisTest {
             MostRunCSV[] indiaCensusCSV = new Gson()
                     .fromJson(sortCensusData, MostRunCSV[].class);
             Assert.assertEquals("Ishant Sharma", indiaCensusCSV[indiaCensusCSV.length-1].player);
+            Assert.assertEquals(333.33, indiaCensusCSV[indiaCensusCSV.length-1].strikeRate,0.0);
+        } catch (CricketLeagueAnalysisException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenIPLCensusCSVFile_WhenSorted_Should_ReturnMaximumSixAndFour() {
+        try {
+            CricketLeagueAnalysis cricketLeagueAnalysis = new CricketLeagueAnalysis(CricketLeagueAnalysis.CricketType.BATTING);
+            cricketLeagueAnalysis.loadCricketLeagueData(IPL_BATSMAN_DATA);
+            String sortLeagueData6  = cricketLeagueAnalysis.maximumSix();
+            String sortLeagueData4  = cricketLeagueAnalysis.maximumFour();
+            MostRunCSV[] mostRunCSVS = new Gson()
+                    .fromJson(sortLeagueData6, MostRunCSV[].class);
+            Assert.assertEquals("Andre Russell", mostRunCSVS[mostRunCSVS.length-1].player);
+            Assert.assertEquals(52, mostRunCSVS[mostRunCSVS.length-1].six);
+
+            MostRunCSV[] mostRunCSVS1 = new Gson()
+                    .fromJson(sortLeagueData4, MostRunCSV[].class);
+            Assert.assertEquals("Shikhar Dhawan", mostRunCSVS1[mostRunCSVS1.length-1].player);
+            Assert.assertEquals(64, mostRunCSVS1[mostRunCSVS1.length-1].four);
         } catch (CricketLeagueAnalysisException e) {
             e.printStackTrace();
         }
