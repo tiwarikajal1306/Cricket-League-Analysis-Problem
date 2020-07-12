@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CricketLeagueAnalysisTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-12T11:13:54" hostname="KAJAL-LAPTOP" time="0.531">
+<testsuite name="CricketLeagueAnalysisTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-12T11:21:30" hostname="KAJAL-LAPTOP" time="0.544">
   <properties/>
-  <testcase name="givenIPLCensusCSVFile_WhenSorted_Should_ReturnTopBattingAvgPlayer" classname="CricketLeagueAnalysisTest" time="0.531"/>
+  <testcase name="givenIPLCensusCSVFile_WhenSorted_Should_ReturnTopStrikeRatePlayer" classname="CricketLeagueAnalysisTest" time="0.544"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

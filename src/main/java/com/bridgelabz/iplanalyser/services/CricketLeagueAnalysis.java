@@ -44,8 +44,11 @@ public class CricketLeagueAnalysis {
         if (leagueList == null || leagueList.size() == 0)
             throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
         Comparator<CricketAnalysisDAO> IPLComparator = Comparator.comparing(census -> census.strikeRate);
-        leagueList.sort(IPLComparator);
-        String sortedStateCensusJson = new Gson().toJson(leagueList);
+        ArrayList leagueDTO = leagueList.stream()
+                .sorted(IPLComparator)
+                .map(censusDAO -> censusDAO.getIplLeagueDTOS(cricketType))
+                .collect(Collectors.toCollection(ArrayList::new));
+        String sortedStateCensusJson = new Gson().toJson(leagueDTO);
         return sortedStateCensusJson;
     }
 }
