@@ -39,7 +39,13 @@ public class CricketLeagueAnalysis {
         String sortedStateCensusJson = new Gson().toJson(leagueDTO);
        return sortedStateCensusJson;
     }
-    //top StrikeRate player
+
+    /**
+     *  top StrikeRate player
+     * @return
+     * @throws CricketLeagueAnalysisException
+     */
+
     public String topStrikeRate() throws CricketLeagueAnalysisException {
         if (leagueList == null || leagueList.size() == 0)
             throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
@@ -51,4 +57,5 @@ public class CricketLeagueAnalysis {
         String sortedStateCensusJson = new Gson().toJson(leagueDTO);
         return sortedStateCensusJson;
     }
+
 }
