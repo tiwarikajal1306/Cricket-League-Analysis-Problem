@@ -58,6 +58,11 @@ public class CricketLeagueAnalysis {
         return sortedStateCensusJson;
     }
 
+    /**
+     * method to sort maximum six
+     * @return
+     * @throws CricketLeagueAnalysisException
+     */
  public String maximumSix() throws CricketLeagueAnalysisException{
      if (leagueList == null || leagueList.size() == 0)
          throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
@@ -70,6 +75,11 @@ public class CricketLeagueAnalysis {
      return sortedStateCensusJson;
  }
 
+    /**
+     * method to sort maximum four
+     * @return
+     * @throws CricketLeagueAnalysisException
+     */
     public String maximumFour() throws CricketLeagueAnalysisException{
         if (leagueList == null || leagueList.size() == 0)
             throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
