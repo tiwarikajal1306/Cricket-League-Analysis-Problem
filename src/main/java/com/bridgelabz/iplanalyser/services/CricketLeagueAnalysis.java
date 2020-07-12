@@ -24,14 +24,11 @@ public class CricketLeagueAnalysis {
         return this.leagueList = new IplLeagueAdapterFactory().getLeagueData(cricketType, csvFilePath);
     }
 
-    //top batting avg of the cricketers
+    /**
+     *  top batting avg of the cricketers
+     */
+
     public String topBattingAverage() throws CricketLeagueAnalysisException {
-//        if (leagueList == null || leagueList.size() == 0)
-//            throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
-//        Comparator<CricketAnalysisDAO> IPLComparator = Comparator.comparing(census -> census.average);
-//        leagueList.sort(IPLComparator);
-//        String sortedStateCensusJson = new Gson().toJson(leagueList);
-//        return sortedStateCensusJson;
         if (leagueList == null || leagueList.size() == 0)
             throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
         Comparator<CricketAnalysisDAO> IPLComparator = Comparator.comparing(census -> census.average);
