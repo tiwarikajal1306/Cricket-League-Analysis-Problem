@@ -83,4 +83,20 @@ public class CricketLeagueAnalysisTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenIPLCensusCSVFile_WhenSorted_Should_ReturnMaximumRun_WithBestStrikingRate() {
+        try {
+            CricketLeagueAnalysis cricketLeagueAnalysis = new CricketLeagueAnalysis(CricketLeagueAnalysis.CricketType.BATTING);
+            cricketLeagueAnalysis.loadCricketLeagueData(IPL_BATSMAN_DATA);
+            String sortCensusData = cricketLeagueAnalysis.maximumRun();
+            MostRunCSV[] mostRunCSV = new Gson()
+                    .fromJson(sortCensusData, MostRunCSV[].class);
+            Assert.assertEquals(692.0, mostRunCSV[mostRunCSV.length - 1].runs, 0.0);
+            Assert.assertEquals(143.86, mostRunCSV[mostRunCSV.length - 1].strikeRate, 0.0);
+            Assert.assertEquals("David Warner", mostRunCSV[mostRunCSV.length - 1].player);
+        } catch (CricketLeagueAnalysisException e) {
+            e.printStackTrace();
+        }
+    }
 }

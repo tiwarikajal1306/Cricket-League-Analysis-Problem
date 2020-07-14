@@ -91,4 +91,16 @@ public class CricketLeagueAnalysis {
         String sortedStateCensusJson = new Gson().toJson(leagueDTO);
         return sortedStateCensusJson;
     }
+
+    public String maximumRun() throws CricketLeagueAnalysisException{
+        if (leagueList == null || leagueList.size() == 0)
+            throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
+        Comparator<CricketAnalysisDAO> IPLComparator = Comparator.comparing(census -> census.runs);
+        ArrayList leagueDTO = leagueList.stream()
+                .sorted(IPLComparator)
+                .map(censusDAO -> censusDAO.getIplLeagueDTOS(cricketType))
+                .collect(Collectors.toCollection(ArrayList::new));
+        String sortedStateCensusJson = new Gson().toJson(leagueDTO);
+        return sortedStateCensusJson;
+    }
 }

@@ -21,7 +21,7 @@ public class CricketAnalysisDAO {
     }
     public Object getIplLeagueDTOS(CricketLeagueAnalysis.CricketType cricketType) {
         if (cricketType.equals(CricketLeagueAnalysis.CricketType.BATTING))
-            return new MostRunCSV(average, strikeRate, player, six, four);
+            return new MostRunCSV(average, strikeRate, player, six, four, runs);
         else
             return null;
     }

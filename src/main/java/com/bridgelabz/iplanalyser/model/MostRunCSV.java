@@ -25,11 +25,12 @@ public class MostRunCSV {
     @CsvBindByName(column = "SR", required = true)
     public double strikeRate;
 
-    public MostRunCSV(double average, double strikeRate, String player, int six, int four) {
+    public MostRunCSV(double average, double strikeRate, String player, int six, int four, int runs) {
         this.average = average;
         this.strikeRate = strikeRate;
         this.player = player;
         this.six = six;
         this.four = four;
+        this.runs = runs;
     }
 }
