@@ -2,6 +2,7 @@ package com.bridgelabz.iplanalyser.adapter;
 
 import com.bridgelabz.iplanalyser.dao.CricketAnalysisDAO;
 import com.bridgelabz.iplanalyser.exception.CricketLeagueAnalysisException;
+import com.bridgelabz.iplanalyser.model.BowlingCSV;
 import com.bridgelabz.iplanalyser.model.MostRunCSV;
 import com.opencsv.CSVBuilderException;
 import com.opencsv.CSVBuilderFactory;
@@ -32,6 +33,13 @@ public abstract class IplLeagueAdapter {
                             .map(MostRunCSV.class::cast)
                             .forEach(cricketCSV -> iplAnalysisMap.put(cricketCSV.player, new CricketAnalysisDAO(cricketCSV)));
                     leagueList = iplAnalysisMap.values().stream().collect(Collectors.toList());
+                    break;
+                case "BowlingCSV":
+                    StreamSupport.stream(csvIterable.spliterator(), false)
+                            .map(BowlingCSV.class::cast)
+                            .forEach(cricketCSV -> iplAnalysisMap.put(cricketCSV.bowlingPlayer, new CricketAnalysisDAO(cricketCSV)));
+                    leagueList = iplAnalysisMap.values().stream().collect(Collectors.toList());
+
                     break;
             }
             if (iplAnalysisMap.size() == 0)

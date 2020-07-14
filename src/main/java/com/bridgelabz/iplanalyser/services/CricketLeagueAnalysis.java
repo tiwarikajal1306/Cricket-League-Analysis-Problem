@@ -12,7 +12,7 @@ public class CricketLeagueAnalysis {
     List<CricketAnalysisDAO> leagueList = new ArrayList<>();
 
     public enum CricketType {
-        BATTING
+        BATTING,BOWLING
     }
     private CricketType cricketType;
 

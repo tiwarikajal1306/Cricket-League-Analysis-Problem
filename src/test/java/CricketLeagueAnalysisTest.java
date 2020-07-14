@@ -9,6 +9,7 @@ import java.util.List;
 
 public class CricketLeagueAnalysisTest {
     private static final String IPL_BATSMAN_DATA = "./src/test/resources/IPL2019FactsheetMostRuns.csv";
+    private static final String IPL_BOWLING_DATA = "./src/test/resources/IPL2019FactsheetMostWkts.csv";
     @Test
     public void givenIPL2019BatsmanData_shouldReturnTotalNumberOfPlayers() {
         try{
@@ -95,6 +96,17 @@ public class CricketLeagueAnalysisTest {
             Assert.assertEquals(692.0, mostRunCSV[mostRunCSV.length - 1].runs, 0.0);
             Assert.assertEquals(143.86, mostRunCSV[mostRunCSV.length - 1].strikeRate, 0.0);
             Assert.assertEquals("David Warner", mostRunCSV[mostRunCSV.length - 1].player);
+        } catch (CricketLeagueAnalysisException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenIPL2019BowlingData_shouldReturnTotalNumberOfPlayers() {
+        try{
+            CricketLeagueAnalysis cricketLeagueAnalysis = new CricketLeagueAnalysis(CricketLeagueAnalysis.CricketType.BOWLING);
+            List numOfRecords = cricketLeagueAnalysis.loadCricketLeagueData(IPL_BOWLING_DATA);
+            Assert.assertEquals(99,numOfRecords.size());
         } catch (CricketLeagueAnalysisException e) {
             e.printStackTrace();
         }

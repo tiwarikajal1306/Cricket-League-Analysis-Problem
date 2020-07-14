@@ -11,6 +11,9 @@ public class IplLeagueAdapterFactory {
     public List<CricketAnalysisDAO> getLeagueData(CricketLeagueAnalysis.CricketType cricketType, String[] csvFilePath) throws CricketLeagueAnalysisException {
         if (cricketType.equals(CricketLeagueAnalysis.CricketType.BATTING))
             return new BattingAdapter().loadCricketLeagueData(csvFilePath);
+
+       else if (cricketType.equals(CricketLeagueAnalysis.CricketType.BOWLING))
+            return new BowlingAdapter().loadCricketLeagueData(csvFilePath);
         else throw new CricketLeagueAnalysisException("Invalid type", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
 
     }
