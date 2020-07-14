@@ -66,7 +66,7 @@ public class CricketLeagueAnalysis {
  public String maximumSix() throws CricketLeagueAnalysisException{
      if (leagueList == null || leagueList.size() == 0)
          throw new CricketLeagueAnalysisException("No data", CricketLeagueAnalysisException.ExceptionType.NO_DATA);
-     Comparator<CricketAnalysisDAO> IPLComparator = Comparator.comparing(census -> census.six);
+     Comparator<CricketAnalysisDAO> IPLComparator = Comparator.comparing(league -> league.six);
      ArrayList leagueDTO = leagueList.stream()
              .sorted(IPLComparator)
              .map(censusDAO -> censusDAO.getIplLeagueDTOS(cricketType))
